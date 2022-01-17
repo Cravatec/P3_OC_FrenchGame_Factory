@@ -18,11 +18,11 @@ class Dwarf: Character {
     
     override init(name: String = "") {
         super.init(name: name)
-        lifePoints = 50
+        lifePoints = 65
         maxLifePoints = 100
         healSkill = 30
-        defaultWeapon = Weapon(weaponName: "Axe", force: 45)
-        currentWeapon = Weapon(weaponName: "Axe", force: 45)
+        defaultWeapon = Weapon(weaponName: "Axe", force: 30)
+        currentWeapon = Weapon(weaponName: "Axe", force: 30)
         bonusWeapons = [hammer, doubleHammer, littleAxe, mediumAxe, goldenAxe]
         description = "3. The Dwarf 💂‍♀️ with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Dwarf 💂‍♀️"

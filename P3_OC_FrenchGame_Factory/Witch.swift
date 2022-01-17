@@ -17,11 +17,11 @@ class Witch: Character {
     
     override init(name: String = "") {
         super.init(name: name)
-        lifePoints = 30
+        lifePoints = 55
         maxLifePoints = 100
         healSkill = 65
-        defaultWeapon = Weapon(weaponName: "Little Stick", force: 65)
-        currentWeapon = Weapon(weaponName: "Little Stick", force: 65)
+        defaultWeapon = Weapon(weaponName: "Little Stick", force: 40)
+        currentWeapon = Weapon(weaponName: "Little Stick", force: 40)
         bonusWeapons = [magicWand, mediumStick, highStick, fire, tordnado]
         description = "5. The Witch 🧙 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Witch 🧙"

@@ -17,12 +17,12 @@ class Warrior: Character {
     
     override init(name: String = "") {
         super.init(name: name)
-        lifePoints = 35
+        lifePoints = 55
         maxLifePoints = 100
         healSkill = 15
         bonusWeapons = [ironAxe, nail, goldenHammer, axe, goldenAxe]
-        defaultWeapon = Weapon(weaponName: "Hammer", force: 60)
-        currentWeapon = Weapon(weaponName: "Hammer", force: 60)
+        defaultWeapon = Weapon(weaponName: "Hammer", force: 40)
+        currentWeapon = Weapon(weaponName: "Hammer", force: 40)
         description = "1. The Warrior 🪖 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Warrior 🪖"
     }

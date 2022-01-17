@@ -17,11 +17,11 @@ class Magus: Character {
     
     override init(name: String = "") {
         super.init(name: name)
-        lifePoints = 20
+        lifePoints = 45
         maxLifePoints = 100
         healSkill = 10
-        defaultWeapon = Weapon(weaponName: "Magic Wand", force: 75)
-        currentWeapon = Weapon(weaponName: "Magic Wand", force: 75)
+        defaultWeapon = Weapon(weaponName: "Magic Wand", force: 50)
+        currentWeapon = Weapon(weaponName: "Magic Wand", force: 50)
         bonusWeapons = [littleWand, mediumWand, bigWand, fireball, lavaBall]
         description = "2. The Magus 🧙‍♂️ with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Magus 🧙‍♂️"

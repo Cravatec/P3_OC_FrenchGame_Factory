@@ -17,11 +17,11 @@ class Archer: Character {
     
     override init(name: String = "") {
         super.init(name: name)
-        lifePoints = 45
+        lifePoints = 65
         maxLifePoints = 100
         healSkill = 15
-        defaultWeapon = Weapon(weaponName: "Bow", force: 50)
-        currentWeapon = Weapon(weaponName: "Bow", force: 50)
+        defaultWeapon = Weapon(weaponName: "Bow", force: 30)
+        currentWeapon = Weapon(weaponName: "Bow", force: 30)
         bonusWeapons = [littleStick, mediumStick, bigStick, ironBow, goldenBow]
         description = "4. The Archer 🏹 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Archer 🏹"

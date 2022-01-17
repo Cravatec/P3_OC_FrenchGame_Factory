@@ -9,11 +9,11 @@ import Foundation
 
 class Archer: Character {
     
-    private let littleStick = Weapon(weaponName: "Little Stick", force: Int.random(in: 4...22))
-    private let mediumStick = Weapon(weaponName: "Medium Stick", force: Int.random(in: 23...44))
-    private let bigStick = Weapon(weaponName: "Big Stick", force: Int.random(in: 45...70))
-    private let ironBow = Weapon(weaponName: "Iron Bow", force: Int.random(in: 71...78))
-    private let goldenBow = Weapon(weaponName: "Golden Bow", force: Int.random(in: 79...85))
+    private let littleStick = Weapon(weaponName: "Little Stick", force: 15)
+    private let mediumStick = Weapon(weaponName: "Medium Stick", force: 30)
+    private let bigStick = Weapon(weaponName: "Big Stick", force: 45)
+    private let ironBow = Weapon(weaponName: "Iron Bow", force: 60)
+    private let goldenBow = Weapon(weaponName: "Golden Bow", force: 75)
     
     override init(name: String = "") {
         super.init(name: name)

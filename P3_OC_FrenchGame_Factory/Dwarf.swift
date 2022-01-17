@@ -10,11 +10,11 @@ import Foundation
 
 class Dwarf: Character {
     
-    private let hammer = Weapon(weaponName: "Hammer", force: Int.random(in: 4...22))
-    private let doubleHammer = Weapon(weaponName: "Double Hammer", force: Int.random(in: 23...44))
-    private let littleAxe = Weapon(weaponName: "Little Axe", force: Int.random(in: 45...69))
-    private let mediumAxe = Weapon(weaponName: "Medium Axe", force: Int.random(in: 70...78))
-    private let goldenAxe = Weapon(weaponName: "Golden Axe", force: Int.random(in: 79...85))
+    private let hammer = Weapon(weaponName: "Hammer", force: 15)
+    private let doubleHammer = Weapon(weaponName: "Double Hammer", force: 30)
+    private let littleAxe = Weapon(weaponName: "Little Axe", force: 45)
+    private let mediumAxe = Weapon(weaponName: "Medium Axe", force: 60)
+    private let goldenAxe = Weapon(weaponName: "Golden Axe", force: 75)
     
     override init(name: String = "") {
         super.init(name: name)

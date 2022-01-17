@@ -9,11 +9,11 @@ import Foundation
 
 class Warrior: Character {
     
-    private let nail = Weapon(weaponName: "Nail", force: Int.random(in: 4...22))
-    private let goldenHammer = Weapon(weaponName: "Golden Hammer", force: Int.random(in: 23...44))
-    private let axe = Weapon(weaponName: "Axe", force: Int.random(in: 44...69))
-    private let ironAxe = Weapon(weaponName: "Iron Axe", force: Int.random(in: 70...78))
-    private let goldenAxe = Weapon(weaponName: "Golden Axe", force: Int.random(in: 79...85))
+    private let nail = Weapon(weaponName: "Nail", force: 15)
+    private let goldenHammer = Weapon(weaponName: "Golden Hammer", force: 30)
+    private let axe = Weapon(weaponName: "Axe", force: 45)
+    private let ironAxe = Weapon(weaponName: "Iron Axe", force: 60)
+    private let goldenAxe = Weapon(weaponName: "Golden Axe", force: 75)
     
     override init(name: String = "") {
         super.init(name: name)

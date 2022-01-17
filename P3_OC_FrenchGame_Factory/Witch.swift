@@ -9,11 +9,11 @@ import Foundation
 
 class Witch: Character {
     
-    private let mediumStick = Weapon(weaponName: "Medium Stick", force: Int.random(in: 4...22))
-    private let highStick = Weapon(weaponName: "High Stick", force: Int.random(in: 23...44))
-    private let magicWand = Weapon(weaponName: "Magic Wand", force: Int.random(in: 45...69))
-    private let fire = Weapon(weaponName: "Fire", force: Int.random(in: 70...78))
-    private let tordnado = Weapon(weaponName: "Tordnado", force: Int.random(in: 79...85))
+    private let mediumStick = Weapon(weaponName: "Medium Stick", force: 15)
+    private let highStick = Weapon(weaponName: "High Stick", force: 30)
+    private let magicWand = Weapon(weaponName: "Magic Wand", force: 45)
+    private let fire = Weapon(weaponName: "Fire", force: 60)
+    private let tordnado = Weapon(weaponName: "Tordnado", force: 75)
     
     override init(name: String = "") {
         super.init(name: name)

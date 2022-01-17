@@ -24,6 +24,6 @@ class Warrior: Character {
         defaultWeapon = Weapon(weaponName: "Hammer", force: 40)
         currentWeapon = Weapon(weaponName: "Hammer", force: 40)
         description = "1. The Warrior 🪖 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
-        characterType = "Warrior 🪖"
+        characterType = "Warrior  🪖"
     }
 }

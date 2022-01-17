@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//init des armes
 struct Weapon {
     let weaponName: String
     let force: Int

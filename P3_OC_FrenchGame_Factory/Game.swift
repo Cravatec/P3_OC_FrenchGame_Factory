@@ -45,7 +45,7 @@ class Game {
             players.append(player)
         }
     }
-    
+    //Création équipe
     func teamMaker() {
         print("\n Choose yours 3 characters for your team \n")
         for player in players {

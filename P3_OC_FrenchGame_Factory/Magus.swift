@@ -24,6 +24,6 @@ class Magus: Character {
         currentWeapon = Weapon(weaponName: "Magic Wand", force: 50)
         bonusWeapons = [littleWand, mediumWand, bigWand, fireball, lavaBall]
         description = "2. The Magus 🧙‍♂️ with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
-        characterType = "Magus 🧙‍♂️"
+        characterType = "Magus  🧙‍♂️"
     }
 }

@@ -24,6 +24,6 @@ class Witch: Character {
         currentWeapon = Weapon(weaponName: "Little Stick", force: 40)
         bonusWeapons = [magicWand, mediumStick, highStick, fire, tordnado]
         description = "5. The Witch 🧙 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
-        characterType = "Witch 🧙"
+        characterType = "Witch  🧙"
     }
 }

@@ -25,6 +25,6 @@ class Dwarf: Character {
         currentWeapon = Weapon(weaponName: "Axe", force: 30)
         bonusWeapons = [hammer, doubleHammer, littleAxe, mediumAxe, goldenAxe]
         description = "3. The Dwarf 💂‍♀️ with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
-        characterType = "Dwarf 💂‍♀️"
+        characterType = "Dwarf  💂‍♀️"
     }
 }

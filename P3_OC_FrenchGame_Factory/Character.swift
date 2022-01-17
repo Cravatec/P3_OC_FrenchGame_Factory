@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//init des Characters
 class Character {
     
     var description = ""

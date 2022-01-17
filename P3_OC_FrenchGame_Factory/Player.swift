@@ -152,7 +152,7 @@ class Player {
             }
         }
     }
-    
+    //fonction choix de soigner
     private func healChoices() {
         print("⛑ Which Character do you want to help ? ⛑")
         for (index, character) in team.enumerated() {
@@ -174,7 +174,7 @@ class Player {
             }
         }
     }
-    
+    //fonction soin pour le personnage choisi
     private func heal(characterNumber: Int) {
         let target = team[characterNumber]
         if target.lifePoints <= target.maxLifePoints - fightingCharacter.healSkill {

@@ -34,7 +34,7 @@ class Game {
         rounds()
         gameEnd()
     }
-    
+    //Donner un nom à l'équipe
     func playerMaker() {
         print("\n 🤺 Player \(players.count+1), what's your team name? \n")
         

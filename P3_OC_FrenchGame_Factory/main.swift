@@ -9,4 +9,4 @@ import Foundation
 
 let game = Game()
 
-game.createPlayer()
+game.startGame()

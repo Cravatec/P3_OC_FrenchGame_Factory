@@ -58,14 +58,14 @@ class Player {
             case "5" :
                 team.append(Witch())
                 chooseName(of: "Witch 🧙")
-            default: print("Type 1 to 5 to choose a Character")
+            default: print("\n 🚨 Type 1 to 5 to choose a Character 🚨 \n")
             }
         }
     }
     
     func chooseCharacter() {
         print("Team \(name) choose your fighter")
-
+        
         for (index, character) in team.enumerated() {
             if character.lifePoints > 0 {
                 print("\(index+1). \(character.name) the \(character.characterType) ❤️:\(character.lifePoints) (max❤️:\(character.maxLifePoints))\n")
@@ -88,8 +88,8 @@ class Player {
     
     func chooseAction(enemyTeams: [Character]) {
         print("What do you want to do?\n"
-                + "\n1. ⛑ Help a partner ⛑"
-                + "\n2. ⚔️ Fight a ennemy ⚔️")
+              + "\n1. ⛑ Help a partner ⛑"
+              + "\n2. ⚔️ Fight a ennemy ⚔️")
         if let choice = readLine() {
             switch choice {
             case "1" :
@@ -101,7 +101,7 @@ class Player {
             }
         }
     }
-
+    
     private func chooseName(of type: String) {
         print("\n Choose a name for \(type)")
         
@@ -123,7 +123,7 @@ class Player {
     private func chosenFighter(characterNumber: Int) {
         fightingCharacter = team[characterNumber]
         print("\n You choose \(fightingCharacter.name), it's a \(fightingCharacter.characterType) with \(fightingCharacter.currentWeapon.weaponName) (\(fightingCharacter.currentWeapon.force) dammage points) ")
-    bonus()
+        bonus()
     }
     
     private func bonus() {
@@ -136,15 +136,15 @@ class Player {
     
     private func keepBonusWeaponOrNot(drewBonusWeapon: Weapon) {
         print("\n Do you want it\n\n"
-                + "1. Yes\n"
-                + "2. No ")
+              + "1. Yes\n"
+              + "2. No ")
         if let choice = readLine() {
             switch choice {
             case "1" :
                 fightingCharacter.currentWeapon = drewBonusWeapon
-                print("\n I take it\n")
+                print("\n Ok, I take it 👍 \n")
             case "2" :
-                print("\n Ok I leave it")
+                print("\n Ok, I leave it 👎 \n")
                 break
             default :
                 print("Choose a answer")
@@ -178,12 +178,12 @@ class Player {
     private func heal(characterNumber: Int) {
         let target = team[characterNumber]
         if target.lifePoints <= target.maxLifePoints - fightingCharacter.healSkill {
-                        target.lifePoints += fightingCharacter.healSkill
+            target.lifePoints += fightingCharacter.healSkill
             print("\(target.name) bring back \(fightingCharacter.healSkill) of life \(target.name) has now \(target.lifePoints) life \n")
         } else if target.lifePoints == target.maxLifePoints {
             print("\n He has already the maximum life point")
         } else {
-                        print("\(target.name) get back \(target.maxLifePoints - target.lifePoints) life point")
+            print("\(target.name) get back \(target.maxLifePoints - target.lifePoints) life point")
             target.lifePoints += target.maxLifePoints - target.lifePoints
             print(" \(target.name) has now \(target.maxLifePoints) life \n")
         }

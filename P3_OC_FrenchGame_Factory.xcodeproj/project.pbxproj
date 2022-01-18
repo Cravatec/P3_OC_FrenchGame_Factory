@@ -80,11 +80,11 @@
 				2274CFE7279035CA00610466 /* Character.swift */,
 				2274CFE52790340700610466 /* Player.swift */,
 				2274CFE9279035FE00610466 /* Weapon.swift */,
-				2274CFF32790368400610466 /* Witch.swift */,
+				2274CFF12790366700610466 /* Archer.swift */,
 				2274CFEF2790364D00610466 /* Dwarf.swift */,
 				2274CFED2790363400610466 /* Magus.swift */,
-				2274CFF12790366700610466 /* Archer.swift */,
 				2274CFEB2790361D00610466 /* Warrior.swift */,
+				2274CFF32790368400610466 /* Witch.swift */,
 			);
 			path = P3_OC_FrenchGame_Factory;
 			sourceTree = "<group>";

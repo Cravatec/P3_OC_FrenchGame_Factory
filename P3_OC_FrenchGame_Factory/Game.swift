@@ -35,23 +35,6 @@ class Game {
         gameEnd()
     }
     //Donner un nom à l'équipe
-//    func playerMaker() {
-//        print("\n 🤺 Player \(players.count+1), what's your team name? \n")
-//
-//        if let userTeamName = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines), !userTeamName.isEmpty {
-//            if userTeamName.contains(userTeamName) {
-//                print("This name is already use")
-//                playerMaker()
-//            }
-//            else {
-//            //Assigné à un joueur
-//            let player = Player(name: userTeamName)
-//            players.append(player)
-//                print("Welcome to the \(userTeamName) Team")
-//
-//        }
-//        }
-//    }
     private func playerMaker() {
         print("\n🤺 Player \(players.count+1), what's your team name? \n")
 
@@ -65,13 +48,13 @@ class Game {
                 print("\n 🔥 Welcome to the \(nameTeam) Team 🔥 \n")
             }
         } else {
-            print("Try a another name")
+            print("❌ Try a another name ❌")
             playerMaker()
         }
     }
     //Création équipe
     func teamMaker() {
-        print("\n Choose yours 3 characters for your team \n")
+        print("\n 🤺 Choose yours 3 characters for your team 🤺 \n")
         for player in players {
             player.createTeams()
             

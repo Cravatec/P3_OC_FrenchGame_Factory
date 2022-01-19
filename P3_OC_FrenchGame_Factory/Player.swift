@@ -38,7 +38,7 @@ class Player {
     func createTeams() {
         let playableCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
         while team.count < 3 {
-            print("🤺 Choose your character \(team.count+1): 🤺")
+            print("🤺 Choose your character \(team.count+1)! Type 1 to 5: 🤺")
             for character in playableCharacters {
                 print("\(character.description)")
             }
@@ -108,8 +108,8 @@ class Player {
     //Choix actions soigner ou attaque
     func chooseAction(enemyTeams: [Character]) {
         print("What do you want to do?\n"
-              + "\n1. ⛑ Help a partner ⛑"
-              + "\n2. ⚔️ Fight a ennemy ⚔️")
+              + "\n 1. ⛑ Help a partner ⛑"
+              + "\n 2. ⚔️ Fight a ennemy ⚔️ \n")
         if let choice = readLine() {
             switch choice {
             case "1" :

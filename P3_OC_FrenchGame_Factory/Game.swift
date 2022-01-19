@@ -100,15 +100,16 @@ class Game {
                 characterStats(character: character)
             }
             if player.teamMembersAlive.count > 0 {
-                print("\n 🙌 Alive in \(player.name) team 🙌 \n ")
+                print("\n 🙌 Alive in \(player.name) team 🙌 ")
                 for character in player.teamMembersAlive {
                     characterStats(character: character)
                 }
             }
         }
+        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎 \n")
     }
     //Stats de l'équipe
     private func characterStats(character: Character) {
-        print("\n \(character.name) the \(character.characterType) stille have ❤️: \(character.lifePoints)\n \n")
+        print("\n \(character.name) the \(character.characterType) stille have ❤️: \(character.lifePoints)")
     }
 }

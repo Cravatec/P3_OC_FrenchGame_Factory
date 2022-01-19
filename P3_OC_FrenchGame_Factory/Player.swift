@@ -34,6 +34,7 @@ class Player {
     
     private var fightingCharacter = Character(name: "")
     
+    //Création équipe, choix des personnages dans la liste
     func createTeams() {
         let playableCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
         while team.count < 3 {
@@ -62,7 +63,26 @@ class Player {
             }
         }
     }
+    //Choix du nom pour le personnage
+    private func chooseName(of type: String) {
+        print("\n Choose a name for \(type)")
+        
+        if let userInput = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines), !userInput.isEmpty {
+            if Character.charactersNames.contains(userInput) {
+                print("This name is not available.")
+                chooseName(of: type)
+            } else {
+                Character.charactersNames.append(userInput)
+                team[team.count-1].name = userInput
+                print("\n Your \(type) is now \(userInput) !\n")
+            }
+        } else {
+            print("Try a another name")
+            chooseName(of: type)
+        }
+    }
     
+    //Choix du personnage à chaque tour
     func chooseCharacter() {
         print("Team \(name) choose your fighter")
         
@@ -85,7 +105,7 @@ class Player {
             }
         }
     }
-    
+    //Choix actions soigner ou attaque
     func chooseAction(enemyTeams: [Character]) {
         print("What do you want to do?\n"
               + "\n1. ⛑ Help a partner ⛑"
@@ -101,54 +121,37 @@ class Player {
             }
         }
     }
-    
-    private func chooseName(of type: String) {
-        print("\n Choose a name for \(type)")
-        
-        if let userInput = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines), !userInput.isEmpty {
-            if Character.charactersNames.contains(userInput) {
-                print("This name is not available.")
-                chooseName(of: type)
-            } else {
-                Character.charactersNames.append(userInput)
-                team[team.count-1].name = userInput
-                print("\n Your \(type) is now \(userInput) !\n")
-            }
-        } else {
-            print("Try a another name")
-            chooseName(of: type)
-        }
-    }
-    
+    //Sélection du personnage
     private func chosenFighter(characterNumber: Int) {
         fightingCharacter = team[characterNumber]
         print("\n You choose \(fightingCharacter.name), it's a \(fightingCharacter.characterType) with \(fightingCharacter.currentWeapon.weaponName) (\(fightingCharacter.currentWeapon.force) dammage points) ")
         bonus()
     }
-    
+    //Bonus, choix aléatoire 1 chance sur 2
     private func bonus() {
         let bonusChances = Int.random(in: 1...10)
         if bonusChances <= 5, let bonusWeapon = fightingCharacter.bonusWeapons.randomElement() {
             print("\n 🎁 This is a bonus 🎁")
             print("\n 🎁 You won this weapon 🗡️ \(bonusWeapon.weaponName), the damage point is \(bonusWeapon.force) ")
-            keepBonusWeaponOrNot(drewBonusWeapon: bonusWeapon)        }
+            chooseBonus(acceptBonusWeapon: bonusWeapon)        }
     }
-    
-    private func keepBonusWeaponOrNot(drewBonusWeapon: Weapon) {
+    //Choix de prendre le bonus ou refuser
+    private func chooseBonus(acceptBonusWeapon: Weapon) {
         print("\n Do you want it\n\n"
-              + "1. Yes\n"
-              + "2. No ")
+              + "1. Yes 👍 \n"
+              + "2. No 👎 \n")
+        
         if let choice = readLine() {
             switch choice {
             case "1" :
-                fightingCharacter.currentWeapon = drewBonusWeapon
+                fightingCharacter.currentWeapon = acceptBonusWeapon
                 print("\n Ok, I take it 👍 \n")
             case "2" :
                 print("\n Ok, I leave it 👎 \n")
                 break
             default :
                 print("Choose a answer")
-                keepBonusWeaponOrNot(drewBonusWeapon: drewBonusWeapon)
+                chooseBonus(acceptBonusWeapon: acceptBonusWeapon)
             }
         }
     }
@@ -188,7 +191,7 @@ class Player {
             print(" \(target.name) has now \(target.maxLifePoints) life \n")
         }
     }
-    
+   //Choix de l'adversaire à combattre
     private func attackChoices(enemyTeams: [Character]) {
         print("\n ⚔️ Choose your enemy ⚔️ \n")
         for (index, character) in enemyTeams.enumerated() {
@@ -206,7 +209,7 @@ class Player {
             }
         }
     }
-    
+    //Attack de l'adversaire, diminution de ses points de vie, affichage du résultat
     private func attack(target: Character) {
         target.lifePoints -= fightingCharacter.currentWeapon.force
         print("\n  \(target.name) the \(target.characterType) lose \(fightingCharacter.currentWeapon.force) life Points 💔 \n")

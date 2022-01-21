@@ -9,11 +9,11 @@ import Foundation
 
 class Warrior: Character {
     
-    private let nail = Weapon(weaponName: "Nail", force: 15)
-    private let goldenHammer = Weapon(weaponName: "Golden Hammer", force: 30)
-    private let axe = Weapon(weaponName: "Axe", force: 45)
-    private let ironAxe = Weapon(weaponName: "Iron Axe", force: 60)
-    private let goldenAxe = Weapon(weaponName: "Golden Axe", force: 75)
+    private let nail = Weapon(name: "Nail", force: 15)
+    private let goldenHammer = Weapon(name: "Golden Hammer", force: 30)
+    private let axe = Weapon(name: "Axe", force: 45)
+    private let ironAxe = Weapon(name: "Iron Axe", force: 60)
+    private let goldenAxe = Weapon(name: "Golden Axe", force: 75)
     
     override init(name: String = "") {
         super.init(name: name)
@@ -21,9 +21,9 @@ class Warrior: Character {
         maxLifePoints = 100
         healSkill = 15
         bonusWeapons = [ironAxe, nail, goldenHammer, axe, goldenAxe]
-        defaultWeapon = Weapon(weaponName: "Hammer", force: 40)
-        currentWeapon = Weapon(weaponName: "Hammer", force: 40)
-        description = "1. The Warrior 🪖 with Weapon: \(currentWeapon.weaponName) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
+        defaultWeapon = Weapon(name: "Hammer", force: 40)
+        currentWeapon = Weapon(name: "Hammer", force: 40)
+        description = "1. The Warrior 🪖 with Weapon: \(currentWeapon.name) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
         characterType = "Warrior  🪖"
     }
 }

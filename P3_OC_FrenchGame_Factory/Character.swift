@@ -15,11 +15,11 @@ class Character {
     
     var name: String
     
-    var characterType = String()
+    var characterType = ""
     
-    var defaultWeapon = Weapon(weaponName: "", force: 0)
+    var defaultWeapon = Weapon(name: "", force: 0)
     
-    var currentWeapon = Weapon(weaponName: "", force: 0)
+    var currentWeapon = Weapon(name: "", force: 0)
     
     var bonusWeapons: [Weapon] = []
     
@@ -27,7 +27,7 @@ class Character {
     
     var maxLifePoints: Int = 100
     
-    var healSkill = Int()
+    var healSkill = 0
     
     static var charactersNames: [String] = []
     

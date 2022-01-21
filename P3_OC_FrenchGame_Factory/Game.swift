@@ -57,7 +57,6 @@ class Game {
         print("\n 🤺 Choose yours 3 characters for your team 🤺 \n")
         for player in players {
             player.createTeams()
-            
         }
     }
     //Déroulement d'un tour
@@ -65,7 +64,7 @@ class Game {
         
         while players[0].deadTeam == false && players[1].deadTeam == false {
             
-            print("ROUND \(roundCount+1)")
+            print("ROUND \(roundCount + 1)")
             for player in players {
                 if player.deadTeam == false {
                     let opponent = players.filter { player.name != $0.name }[0]
@@ -78,21 +77,21 @@ class Game {
     }
     //Fin de partie, appel des fonctions du résultat et stats
     private func gameEnd() {
+        print("\n 🪦 Game Over 🪦 \n")
         winner()
         stats()
     }
     //Affichage du joueur gagnant
     private func winner() {
-        print("\n 🪦 Game Over 🪦 \n")
         if players[0].teamMembersAlive.count > players[1].teamMembersAlive.count {
-            print("\n 🥇 Team \(players[0].name) win 🥇 \n")
+            print("\n 🥇 Team \(players[0].name) win 🥇")
         } else {
-            print("\n 🥇 Team \(players[1].name) win 🥇 \n")
+            print("\n 🥇 Team \(players[1].name) win 🥇")
         }
     }
     //Stats de la partie
     private func stats() {
-        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎 \n")
+        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎")
         // stats:
         for player in players {
             print("\n ☠️☠️☠️ Death in \(player.name) team ☠️☠️☠️")
@@ -106,10 +105,10 @@ class Game {
                 }
             }
         }
-        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎 \n")
+        winner()
     }
     //Stats de l'équipe
     private func characterStats(character: Character) {
-        print("\n \(character.name) the \(character.characterType) stille have ❤️: \(character.lifePoints)")
+        print("\n \(character.name) the \(character.characterType) still have ❤️: \(character.lifePoints)")
     }
 }

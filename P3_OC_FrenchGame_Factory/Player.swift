@@ -47,20 +47,15 @@ class Player {
             let choice = readLine()
             switch choice {
             case "1" :
-                team.append(Warrior())
-                chooseName(typeCharacter: "Warrior 🪖")
+                team.append(Warrior()); chooseName(typeCharacter: "Warrior 🪖")
             case "2" :
-                team.append(Magus())
-                chooseName(typeCharacter: "Magus 🧙‍♂️")
+                team.append(Magus()); chooseName(typeCharacter: "Magus 🧙‍♂️")
             case "3" :
-                team.append(Dwarf())
-                chooseName(typeCharacter: "Dwarf 💂‍♀️")
+                team.append(Dwarf()); chooseName(typeCharacter: "Dwarf 💂‍♀️")
             case "4" :
-                team.append(Archer())
-                chooseName(typeCharacter: "Archer 🏹")
+                team.append(Archer()); chooseName(typeCharacter: "Archer 🏹")
             case "5" :
-                team.append(Witch())
-                chooseName(typeCharacter: "Witch 🧙")
+                team.append(Witch()); chooseName(typeCharacter: "Witch 🧙")
             default: print("\n 🚨 Type 1 to 5 to choose a Character 🚨 \n")
             }
         }

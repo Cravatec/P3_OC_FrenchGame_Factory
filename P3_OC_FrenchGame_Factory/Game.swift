@@ -9,10 +9,15 @@ import Foundation
 
 class Game {
     
+    //Counter for rounds
+    
     private var roundCount = 0
     
-    //Array for players
+    //Array for the two players
+    
     private var players: [Player] = []
+    
+    //Property for the name and avoid to have a duplicate name
     
     private var playerNames: [String] {
         var names: [String] = []
@@ -21,7 +26,9 @@ class Game {
         }
         return names
     }
-
+    
+    //Start all functions for the game
+    
     func startGame() {
         print("⚔️ Welcome to the Ultime Game Combat ⚔️")
         
@@ -35,10 +42,11 @@ class Game {
         gameEnd()
     }
     
-    //Name the team
+    //Name the team, and check if it's already use
+    
     private func playerMaker() {
         print("\n🤺 Player \(players.count + 1), what's your team name? \n")
-
+        
         if let nameTeam = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines), !nameTeam.isEmpty {
             if playerNames.contains(nameTeam) {
                 print("❌ This name is already use ! ❌")
@@ -63,6 +71,8 @@ class Game {
     
     private func rounds() {
         
+        //check if a team still have a character alive and start a new round
+        
         while players[0].deadTeam == false && players[1].deadTeam == false {
             
             print("ROUND \(roundCount + 1)")
@@ -76,13 +86,17 @@ class Game {
             roundCount += 1
         }
     }
-
+    
+    //Call for the Game Over, Winner and stats print
+    
     private func gameEnd() {
         print("\n 🪦 Game Over 🪦 \n")
         winner()
         stats()
     }
-
+    
+    //Show which team won
+    
     private func winner() {
         if players[0].teamMembersAlive.count > players[1].teamMembersAlive.count {
             print("\n 🥇 Team \(players[0].name) win 🥇")
@@ -90,10 +104,12 @@ class Game {
             print("\n 🥇 Team \(players[1].name) win 🥇")
         }
     }
-
+    
+    //Show the stats for each team
+    
     private func stats() {
         print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎")
-        // stats:
+        
         for player in players {
             print("\n ☠️☠️☠️ Death in \(player.name) team ☠️☠️☠️")
             for character in player.team where character.lifePoints == 0 {
@@ -108,8 +124,10 @@ class Game {
         }
         winner()
     }
-
+    
+    //print for the stats
+    
     private func characterStats(character: Character) {
-        print("\n \(character.name) the \(character.characterType) still have ❤️: \(character.lifePoints)")
+        print("\(character.name) the \(character.characterType) still have ❤️: \(character.lifePoints)")
     }
 }

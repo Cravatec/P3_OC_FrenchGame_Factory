@@ -12,14 +12,17 @@ class Player {
     var name: String
     
     //Array for team's character
+    
     var team: [Character] = []
     
     //Array for alive character
+    
     var teamMembersAlive: [Character] {
         team.filter { $0.lifePoints > 0 }
     }
     
-    //Check if character still have life point
+    //Check if characters still have life point
+    
     var deadTeam: Bool {
         if teamMembersAlive.isEmpty {
             return true
@@ -32,13 +35,13 @@ class Player {
         self.name = name
     }
     
-    private var fightingCharacter = Character(name: "")
+    private var fighter = Character(name: "")
     
     func createTeams() {
-        let playableCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
+        let allCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
         while team.count < 3 {
             print("🤺 Choose your character \(team.count + 1)! Type 1 to 5: 🤺")
-            for character in playableCharacters {
+            for character in allCharacters {
                 print("\(character.description)")
             }
             let choice = readLine()
@@ -62,7 +65,9 @@ class Player {
             }
         }
     }
-
+    
+    //Choose a name for the selected character and check if the name isn't already use
+    
     private func chooseName(typeCharacter type: String) {
         print("\n Choose a name for \(type) \n")
         
@@ -105,7 +110,9 @@ class Player {
             }
         }
     }
-        
+    
+    //Choose a action each round
+    
     func chooseAction(enemyTeams: [Character]) {
         print("What do you want to do?\n"
               + "\n 1. ⛑ Help a partner ⛑"
@@ -121,21 +128,27 @@ class Player {
             }
         }
     }
-
+    
+    //The chosen character print is status and bonus
+    
     private func chosenFighter(characterNumber: Int) {
-        fightingCharacter = team[characterNumber]
-        print("\n You choose \(fightingCharacter.name), it's a \(fightingCharacter.characterType)  with a \(fightingCharacter.currentWeapon.name) (\(fightingCharacter.currentWeapon.force) dammage points) & \(fightingCharacter.healSkill) rescue points")
+        fighter = team[characterNumber]
+        print("\n You choose \(fighter.name), it's a \(fighter.characterType)  with a \(fighter.currentWeapon.name) (\(fighter.currentWeapon.force) dammage points) & \(fighter.healSkill) rescue points")
         bonus()
     }
     
+    //Bonus with one chance in two to have a weapon
+    
     private func bonus() {
-        let bonusChances = Int.random(in: 1...10) // one chance in two
-        if bonusChances <= 5, let bonusWeapon = fightingCharacter.bonusWeapons.randomElement() {
+        let bonusChances = Int.random(in: 1...10)
+        if bonusChances <= 5, let bonusWeapon = fighter.bonusWeapons.randomElement() {
             print("\n 🎁 This is a bonus 🎁")
             print("\n 🎁 You won this weapon 🗡️ \(bonusWeapon.name), the damage point is \(bonusWeapon.force) 🎁")
             chooseBonus(acceptBonusWeapon: bonusWeapon)        }
     }
-
+    
+    //Accept or refuse the bonus
+    
     private func chooseBonus(acceptBonusWeapon: Weapon) {
         print("\n Do you want it\n\n"
               + "1. Yes 👍 \n"
@@ -144,7 +157,7 @@ class Player {
         if let choice = readLine() {
             switch choice {
             case "1" :
-                fightingCharacter.currentWeapon = acceptBonusWeapon
+                fighter.currentWeapon = acceptBonusWeapon
                 print("\n Ok, I take it 👍 \n")
             case "2" :
                 print("\n Ok, I leave it 👎 \n")
@@ -156,8 +169,10 @@ class Player {
         }
     }
     
+    //Choose the team member you want to help
+    
     private func healChoices() {
-        print("⛑ Which Character do you want to help ? You will had \(fightingCharacter.healSkill) life points ⛑")
+        print("⛑ Which Character do you want to help ? You will had \(fighter.healSkill) life points ⛑")
         for (index, character) in team.enumerated() {
             if character.lifePoints > 0 { // ‣
                 print("\(index + 1). ⛑ Nurse \(character.name) the \(character.characterType) (\(character.lifePoints)/\(character.maxLifePoints) ❤️) ⛑ \n")
@@ -177,12 +192,14 @@ class Player {
             }
         }
     }
-
+    
+    //Add the heal skill to the character life points
+    
     private func heal(characterNumber: Int) {
         let target = team[characterNumber]
-        if target.lifePoints <= target.maxLifePoints - fightingCharacter.healSkill {
-            target.lifePoints += fightingCharacter.healSkill
-            print("\(fightingCharacter.name) give \(fightingCharacter.healSkill) ❤️. Now \(target.name) the \(target.characterType) has \(target.lifePoints) ❤️ \n")
+        if target.lifePoints <= target.maxLifePoints - fighter.healSkill {
+            target.lifePoints += fighter.healSkill
+            print("\(fighter.name) give \(fighter.healSkill) ❤️. Now \(target.name) the \(target.characterType) has \(target.lifePoints) ❤️ \n")
         } else if target.lifePoints == target.maxLifePoints {
             print("\n He has already the maximum life point")
         } else {
@@ -191,7 +208,9 @@ class Player {
             print(" \(target.name) has now \(target.maxLifePoints) life \n")
         }
     }
-
+    
+    //Attack and choose which enemy
+    
     private func attackChoices(enemyTeams: [Character]) {
         print("\n ⚔️ Choose your enemy ⚔️ \n")
         for (index, character) in enemyTeams.enumerated() {
@@ -211,15 +230,16 @@ class Player {
     }
     
     //Attack, reduce the life point & print the result
+    
     private func attack(target: Character) {
-        target.lifePoints -= fightingCharacter.currentWeapon.force
-        print("\n  \(target.name) the \(target.characterType) lose \(fightingCharacter.currentWeapon.force) life Points 💔 \n")
+        target.lifePoints -= fighter.currentWeapon.force
+        print("\n  \(target.name) the \(target.characterType) lose \(fighter.currentWeapon.force) life Points 💔 \n")
         if target.lifePoints > 0 {
             print("\(target.name) the \(target.characterType) has now \(target.lifePoints)/\(target.maxLifePoints) ❤️ \n")
         } else {
             print("☠️☠️☠️ \(target.name) the \(target.characterType) is dead ☠️☠️☠️ \n")
             target.lifePoints = 0
         }
-        fightingCharacter.currentWeapon = fightingCharacter.defaultWeapon // ‣ Character takes back his default weapon at the end of his turn
+        fighter.currentWeapon = fighter.defaultWeapon // ‣ Character takes back his default weapon at the end of his turn
     }
 }

@@ -23,7 +23,7 @@ class Character {
     
     var bonusWeapons: [Weapon] = []
     
-    var lifePoints: Int = 100
+    var lifePoints: Int = 1
     
     var maxLifePoints: Int = 100
     

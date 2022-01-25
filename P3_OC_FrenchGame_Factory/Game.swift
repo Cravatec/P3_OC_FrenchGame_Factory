@@ -9,13 +9,11 @@ import Foundation
 
 class Game {
     
-    //Compte des tours
     private var roundCount = 0
     
-    //Array du joueur
+    //Array for players
     private var players: [Player] = []
     
-    //Array des joueurs
     private var playerNames: [String] {
         var names: [String] = []
         for player in players {
@@ -23,20 +21,23 @@ class Game {
         }
         return names
     }
-    //Déroulement du jeu
+
     func startGame() {
         print("⚔️ Welcome to the Ultime Game Combat ⚔️")
         
-        for _ in 1...2 { //Création équipe pour les deux joueurs
+        //Create team for player 1 & 2
+        
+        for _ in 1...2 {
             playerMaker()
             teamMaker()
         }
         rounds()
         gameEnd()
     }
-    //Donner un nom à l'équipe
+    
+    //Name the team
     private func playerMaker() {
-        print("\n🤺 Player \(players.count+1), what's your team name? \n")
+        print("\n🤺 Player \(players.count + 1), what's your team name? \n")
 
         if let nameTeam = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines), !nameTeam.isEmpty {
             if playerNames.contains(nameTeam) {
@@ -52,14 +53,14 @@ class Game {
             playerMaker()
         }
     }
-    //Création équipe, choix des personages
+    
     func teamMaker() {
         print("\n 🤺 Choose yours 3 characters for your team 🤺 \n")
         for player in players {
             player.createTeams()
         }
     }
-    //Déroulement d'un tour
+    
     private func rounds() {
         
         while players[0].deadTeam == false && players[1].deadTeam == false {
@@ -75,13 +76,13 @@ class Game {
             roundCount += 1
         }
     }
-    //Fin de partie, appel des fonctions du résultat et stats
+
     private func gameEnd() {
         print("\n 🪦 Game Over 🪦 \n")
         winner()
         stats()
     }
-    //Affichage du joueur gagnant
+
     private func winner() {
         if players[0].teamMembersAlive.count > players[1].teamMembersAlive.count {
             print("\n 🥇 Team \(players[0].name) win 🥇")
@@ -89,7 +90,7 @@ class Game {
             print("\n 🥇 Team \(players[1].name) win 🥇")
         }
     }
-    //Stats de la partie
+
     private func stats() {
         print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎")
         // stats:
@@ -107,7 +108,7 @@ class Game {
         }
         winner()
     }
-    //Stats de l'équipe
+
     private func characterStats(character: Character) {
         print("\n \(character.name) the \(character.characterType) still have ❤️: \(character.lifePoints)")
     }

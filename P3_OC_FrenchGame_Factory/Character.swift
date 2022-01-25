@@ -7,7 +7,7 @@
 
 import Foundation
 
-//init des Characters
+//Characters init
 
 class Character {
     

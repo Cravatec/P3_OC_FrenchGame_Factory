@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Dwarf: Character {
     
     private let hammer = Weapon(name: "Hammer", force: 15)

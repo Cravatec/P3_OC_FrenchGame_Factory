@@ -9,24 +9,6 @@ import Foundation
 
 class Game {
     
-    //Counter for rounds
-    
-    private var roundCount = 0
-    
-    //Array for the two players
-    
-    private var players: [Player] = []
-    
-    //Property for the name and avoid to have a duplicate name
-    
-    private var playerNames: [String] {
-        var names: [String] = []
-        for player in players {
-            names.append(player.name)
-        }
-        return names
-    }
-    
     //Start all functions for the game
     
     func startGame() {
@@ -40,6 +22,21 @@ class Game {
         }
         rounds()
         gameEnd()
+    }
+    
+    //Counter for rounds
+    private var numberRound = 0
+    
+    //Array for the two players
+    private var players: [Player] = []
+    //Property for the name and avoid to have a duplicate name
+    
+    private var playerNames: [String] {
+        var names: [String] = []
+        for player in players {
+            names.append(player.name)
+        }
+        return names
     }
     
     //Name the team, and check if it's already use
@@ -75,7 +72,7 @@ class Game {
         
         while players[0].deadTeam == false && players[1].deadTeam == false {
             
-            print("ROUND \(roundCount + 1)")
+            print("ROUND \(numberRound + 1)")
             for player in players {
                 if player.deadTeam == false {
                     let opponent = players.filter { player.name != $0.name }[0]
@@ -83,7 +80,7 @@ class Game {
                     player.chooseAction(enemyTeams: opponent.team)
                 }
             }
-            roundCount += 1
+            numberRound += 1
         }
     }
     
@@ -108,7 +105,7 @@ class Game {
     //Show the stats for each team
     
     private func stats() {
-        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(roundCount+1) rounds 🛎")
+        print("\n Results: 🛎 \(players[0].name) VS \(players[1].name) end after \(numberRound+1) rounds 🛎")
         
         for player in players {
             print("\n ☠️☠️☠️ Death in \(player.name) team ☠️☠️☠️")

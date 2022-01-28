@@ -25,7 +25,7 @@ class Character {
     
     var lifePoints: Int = 1
     
-    var maxLifePoints: Int = 100
+    let maxLifePoints: Int = 100
     
     var healSkill = 0
     

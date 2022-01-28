@@ -9,6 +9,8 @@ import Foundation
 
 class Player {
     
+    private var fighter = Character(name: "")
+    
     var name: String
     
     //Array for team's character
@@ -34,9 +36,7 @@ class Player {
     init(name: String) {
         self.name = name
     }
-    
-    private var fighter = Character(name: "")
-    
+        
     func createTeams() {
         let allCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
         while team.count < 3 {

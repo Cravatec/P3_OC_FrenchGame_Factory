@@ -18,7 +18,6 @@ class Magus: Character {
     override init(name: String = "") {
         super.init(name: name)
         lifePoints = 45
-        maxLifePoints = 100
         healSkill = 10
         defaultWeapon = Weapon(name: "Magic Wand", force: 50)
         currentWeapon = Weapon(name: "Magic Wand", force: 50)

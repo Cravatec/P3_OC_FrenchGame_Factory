@@ -18,7 +18,6 @@ class Witch: Character {
     override init(name: String = "") {
         super.init(name: name)
         lifePoints = 55
-        maxLifePoints = 100
         healSkill = 20
         defaultWeapon = Weapon(name: "Little Stick", force: 40)
         currentWeapon = Weapon(name: "Little Stick", force: 40)

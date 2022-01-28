@@ -18,7 +18,6 @@ class Dwarf: Character {
     override init(name: String = "") {
         super.init(name: name)
         lifePoints = 65
-        maxLifePoints = 100
         healSkill = 25
         defaultWeapon = Weapon(name: "Axe", force: 30)
         currentWeapon = Weapon(name: "Axe", force: 30)

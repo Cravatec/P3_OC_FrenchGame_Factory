@@ -18,7 +18,6 @@ class Archer: Character {
     override init(name: String = "") {
         super.init(name: name)
         lifePoints = 65
-        maxLifePoints = 100
         healSkill = 15
         defaultWeapon = Weapon(name: "Bow", force: 30)
         currentWeapon = Weapon(name: "Bow", force: 30)

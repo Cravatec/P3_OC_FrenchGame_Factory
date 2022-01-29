@@ -15,14 +15,15 @@ class Dwarf: Character {
     private let mediumAxe = Weapon(name: "Medium Axe", force: 60)
     private let goldenAxe = Weapon(name: "Golden Axe", force: 75)
     
-    override init(name: String = "") {
-        super.init(name: name)
-        lifePoints = 65
-        healSkill = 25
-        defaultWeapon = Weapon(name: "Axe", force: 30)
-        currentWeapon = Weapon(name: "Axe", force: 30)
-        bonusWeapons = [hammer, doubleHammer, littleAxe, mediumAxe, goldenAxe]
-        description = "3. The Dwarf 💂‍♀️ with Weapon: \(currentWeapon.name) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
-        characterType = "Dwarf  💂‍♀️"
+    init(name: String = "") {
+        let lifePoints = 65
+        let healSkill = 25
+        let defaultWeapon = Weapon(name: "Axe", force: 30)
+        let currentWeapon = Weapon(name: "Axe", force: 30)
+        let bonusWeapons = [hammer, doubleHammer, littleAxe, mediumAxe, goldenAxe]
+        let description = "3. The Dwarf 💂‍♀️ with Weapon: \(currentWeapon.name) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)"
+        let characterType = "Dwarf  💂‍♀️"
+        super.init(name: name, description: description, characterType: characterType, defaultWeapon: defaultWeapon, currentWeapon: currentWeapon, bonusWeapons: bonusWeapons, lifePoints: lifePoints, healSkill: healSkill)
+        
     }
 }

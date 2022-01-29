@@ -11,27 +11,27 @@ import Foundation
 
 class Character {
     
-    var description = ""
+    let name: String
+    let description: String
+    let characterType: String
+    let defaultWeapon: Weapon
+    let bonusWeapons: [Weapon]
+    let healSkill: Int
     
-    var name: String
-    
-    var characterType = ""
-    
-    var defaultWeapon = Weapon(name: "", force: 0)
-    
-    var currentWeapon = Weapon(name: "", force: 0)
-    
-    var bonusWeapons: [Weapon] = []
-    
-    var lifePoints: Int = 1
-    
-    let maxLifePoints: Int = 100
-    
-    var healSkill = 0
+    var lifePoints: Int
+    var currentWeapon: Weapon
     
     static var charactersNames: [String] = []
+    static let maxLifePoints: Int = 100
     
-    init(name: String) {
+    init(name: String, description: String, characterType: String, defaultWeapon: Weapon, currentWeapon: Weapon, bonusWeapons: [Weapon], lifePoints: Int, healSkill: Int) {
         self.name = name
+        self.description = description
+        self.characterType = characterType
+        self.defaultWeapon = defaultWeapon
+        self.currentWeapon = currentWeapon
+        self.bonusWeapons = bonusWeapons
+        self.lifePoints = lifePoints
+        self.healSkill = healSkill
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 class Player {
     
-    private var fighter = Character(name: "")
+    private var fighter: Character!
     
     var name: String
     
@@ -36,7 +36,7 @@ class Player {
     init(name: String) {
         self.name = name
     }
-        
+    
     func createTeams() {
         let allCharacters = [Warrior(), Magus(), Dwarf(), Archer(), Witch()]
         while team.count < 3 {
@@ -72,7 +72,6 @@ class Player {
                 chooseName(typeCharacter: type)
             } else {
                 Character.charactersNames.append(userInput)
-                team[team.count - 1].name = userInput
                 print("\n Your \(type) is now \(userInput) !\n")
             }
         } else {
@@ -88,7 +87,7 @@ class Player {
         
         for (index, character) in team.enumerated() {
             if character.lifePoints > 0 {
-                print("\(index + 1). \(character.name) the \(character.characterType) ❤️:\(character.lifePoints) (max❤️:\(character.maxLifePoints))\n")
+                print("\(index + 1). \(character.name) the \(character.characterType) ❤️:\(character.lifePoints) (max❤️:\(Character.maxLifePoints))\n")
             }
         }
         if let choice = readLine() {
@@ -170,7 +169,7 @@ class Player {
         print("⛑ Which Character do you want to help ? You will had \(fighter.healSkill) life points ⛑")
         for (index, character) in team.enumerated() {
             if character.lifePoints > 0 { // ‣
-                print("\(index + 1). ⛑ Nurse \(character.name) the \(character.characterType) (\(character.lifePoints)/\(character.maxLifePoints) ❤️) ⛑ \n")
+                print("\(index + 1). ⛑ Nurse \(character.name) the \(character.characterType) (\(character.lifePoints)/\(Character.maxLifePoints) ❤️) ⛑ \n")
             }
         }
         if let choice = readLine() {
@@ -192,15 +191,15 @@ class Player {
     
     private func heal(characterNumber: Int) {
         let target = team[characterNumber]
-        if target.lifePoints <= target.maxLifePoints - fighter.healSkill {
+        if target.lifePoints <= Character.maxLifePoints - fighter.healSkill {
             target.lifePoints += fighter.healSkill
             print("\(fighter.name) give \(fighter.healSkill) ❤️. Now \(target.name) the \(target.characterType) has \(target.lifePoints) ❤️ \n")
-        } else if target.lifePoints == target.maxLifePoints {
+        } else if target.lifePoints == Character.maxLifePoints {
             print("\n He has already the maximum life point")
         } else {
-            print("\(target.name) get back \(target.maxLifePoints - target.lifePoints) life point")
-            target.lifePoints += target.maxLifePoints - target.lifePoints
-            print(" \(target.name) has now \(target.maxLifePoints) life \n")
+            print("\(target.name) get back \(Character.maxLifePoints - target.lifePoints) life point")
+            target.lifePoints += Character.maxLifePoints - target.lifePoints
+            print(" \(target.name) has now \(Character.maxLifePoints) life \n")
         }
     }
     
@@ -210,7 +209,7 @@ class Player {
         print("\n ⚔️ Choose your enemy ⚔️ \n")
         for (index, character) in enemyTeams.enumerated() {
             if character.lifePoints > 0 {
-                print("\(index + 1). Attack \(character.name) the \(character.characterType) ❤️:\(character.lifePoints) (max❤️:\(character.maxLifePoints)) \n")
+                print("\(index + 1). Attack \(character.name) the \(character.characterType) ❤️:\(character.lifePoints) (max❤️:\(Character.maxLifePoints)) \n")
             }
         }
         if let choice = readLine() {
@@ -230,7 +229,7 @@ class Player {
         target.lifePoints -= fighter.currentWeapon.force
         print("\n  \(target.name) the \(target.characterType) lose \(fighter.currentWeapon.force) life Points 💔 \n")
         if target.lifePoints > 0 {
-            print("\(target.name) the \(target.characterType) has now \(target.lifePoints)/\(target.maxLifePoints) ❤️ \n")
+            print("\(target.name) the \(target.characterType) has now \(target.lifePoints)/\(Character.maxLifePoints) ❤️ \n")
         } else {
             print("☠️☠️☠️ \(target.name) the \(target.characterType) is dead ☠️☠️☠️ \n")
             target.lifePoints = 0

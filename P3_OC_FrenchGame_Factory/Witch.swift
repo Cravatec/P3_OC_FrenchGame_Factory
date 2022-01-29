@@ -15,14 +15,14 @@ class Witch: Character {
     private let fire = Weapon(name: "Fire", force: 60)
     private let tornado = Weapon(name: "Tornado", force: 75)
     
-    override init(name: String = "") {
-        super.init(name: name)
-        lifePoints = 55
-        healSkill = 20
-        defaultWeapon = Weapon(name: "Little Stick", force: 40)
-        currentWeapon = Weapon(name: "Little Stick", force: 40)
-        bonusWeapons = [magicWand, mediumStick, highStick, fire, tornado]
-        description = "5. The Witch 🧙 with Weapon: \(currentWeapon.name) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)\n"
-        characterType = "Witch  🧙"
+    init(name: String = "") {
+        let lifePoints = 55
+        let healSkill = 20
+        let defaultWeapon = Weapon(name: "Little Stick", force: 40)
+        let currentWeapon = Weapon(name: "Little Stick", force: 40)
+        let bonusWeapons = [magicWand, mediumStick, highStick, fire, tornado]
+        let description = "5. The Witch 🧙 with Weapon: \(currentWeapon.name) (\(currentWeapon.force) force) - ❤️: \(lifePoints) - ⛑: \(healSkill)\n"
+        let characterType = "Witch  🧙"
+        super.init(name: name, description: description, characterType: characterType, defaultWeapon: defaultWeapon, currentWeapon: currentWeapon, bonusWeapons: bonusWeapons, lifePoints: lifePoints, healSkill: healSkill)
     }
 }
